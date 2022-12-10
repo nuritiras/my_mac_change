@@ -8,9 +8,9 @@ def get_user_input():
     return parse_object.parse_args()
 
 def change_mac_address(interface,mac_address):
-    subprocess.call(["ifconfig", interface, "down"])
-    subprocess.call(["ifconfig", interface, "hw", "ether", mac_address])
-    subprocess.call(["ifconfig", interface, "up"])
+    subprocess.call(["ip", "link", "set", interface, "down"])
+    subprocess.call(["ip", "link", "set", "dev", interface, "address", mac_address])
+    subprocess.call(["ip", "link", "set", interface, "up"])
 
 print("MAC Changer Started")
 (user_input,arguments)=get_user_input()
