@@ -28,4 +28,9 @@ def control_new_mac(interface):
 print("MAC Changer Started")
 (user_input, arguments) = get_user_input()
 change_mac_address(user_input.interface, user_input.mac_address)
-control_new_mac(user_input.interface)
+finalized_mac = control_new_mac(user_input.interface)
+
+if finalized_mac == user_input.mac_address:
+    printt("Success!")
+else:
+    print("Error!")
